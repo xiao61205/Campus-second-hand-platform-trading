@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script>
+        function validateLoginForm() {
+            var username = document.getElementById('username').value;
+            var passcode = document.getElementById('passcode').value;
+
+            if (username === "" || passcode === "") {
+                alert("Username and Passcode cannot be empty.");
+                return false; // Prevent form submission
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Login</h2>
+        <form onsubmit="return validateLoginForm()">
+            <div class="input-box">
+                <label>Username</label>
+                <input type="text" id="username" />
+            </div>
+            <div class="input-box">
+                <label>Passcode</label>
+                <input type="password" id="passcode" />
+            </div>
+            <div class="btn-box">
+                <a href="#">Forget Passcode</a>
+                <div>
+                    <!-- 登录按钮：点击后跳转到主页 -->
+                    <button type="submit">Login</button>
+                    <!-- 注册按钮：点击后跳转到注册页面 -->
+                    <a href="/register" class="btn">Register</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <a href="/" class="back-button" style="margin-top: 20px; text-decoration: none; color: white; background: #4CAF50; padding: 10px 20px; border-radius: 5px;">Back to Home</a>
+</body>
+
+</html>

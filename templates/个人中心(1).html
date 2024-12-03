@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Center</title>
+    <style>
+        /* CSS部分开始 */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .profile-info, .seller-section {
+            margin-bottom: 20px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #fafafa;
+        }
+
+        .profile-pic {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        .profile-pic img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #ddd;
+        }
+
+        .profile-pic button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .profile-pic button:hover {
+            background-color: #0056b3;
+        }
+
+        form label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        .hidden {
+            display: none;
+        }
+        /* CSS部分结束 */
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Personal Center</h1>
+        </header>
+        <main>
+            <section class="profile-info">
+                <div class="profile-pic">
+                    <img src="avatar.png" alt="avatar" id="profilePic">
+                    <button id="changePicBtn">Change The Avatar</button>
+                </div>
+                <form id="profileForm">
+                    <label for="nickname">Nickname:</label>
+                    <input type="text" id="nickname" name="nickname" required>
+
+                    <label for="bio">Personal Profile:</label>
+                    <textarea id="bio" name="bio" rows="4" required></textarea>
+
+                    <button type="submit">SAVE</button>
+                </form>
+            </section>
+            <section class="seller-section">
+                <h2>Become A Seller</h2>
+                <button id="becomeSellerBtn">Become A Seller</button>
+                <div id="sellProducts" class="hidden">
+                    <h3>Publish Product</h3>
+                    <form id="productForm">
+                        <label for="productName">Product Name:</label>
+                        <input type="text" id="productName" name="productName" required>
+
+                        <label for="productDesc">Product Description:</label>
+                        <textarea id="productDesc" name="productDesc" rows="4" required></textarea>
+
+                        <label for="productPrice">Product Price:</label>
+                        <input type="number" id="productPrice" name="productPrice" min="0" step="0.01" required>
+
+                        <button type="submit">PUBLISH</button>
+                    </form>
+                </div>
+            </section>
+        </main>
+        <a href="/" class="back-button">Back to Home</a>
+    </div>
+
+    <!-- JavaScript部分开始 -->
+    <script>
+        document.getElementById('changePicBtn').addEventListener('click', function() {
+            // 可以在这里添加更换头像的逻辑，比如文件输入和预览
+            alert('The avatar change function is not yet implemented');
+        });
+
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const nickname = document.getElementById('nickname').value;
+            const bio = document.getElementById('bio').value;
+            // 可以在这里添加保存个人信息的逻辑，比如通过AJAX发送到服务器
+            alert(`nickname: ${nickname}\nPersonal Profile: ${bio}\nsaved`);
+        });
+
+        document.getElementById('becomeSellerBtn').addEventListener('click', function() {
+            document.getElementById('sellProducts').classList.remove('hidden');
+        });
+
+        document.getElementById('productForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const productName = document.getElementById('productName').value;
+            const productDesc = document.getElementById('productDesc').value;
+            const productPrice = document.getElementById('productPrice').value;
+            // 可以在这里添加发布商品的逻辑，比如通过AJAX发送到服务器
+            alert(`Product Name: ${productName}\nProduct Description: ${productDesc}\nProduct Price: ${productPrice}\npublished`);
+        });
+    </script>
+    <!-- JavaScript部分结束 -->
+</body>
+</html>

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Commodity Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            height: 100vh;
+            background: url("https://news.scnu.edu.cn/media/image/2020/10/20201015e0192e.jpg.v") no-repeat;
+            background-size: cover;
+        }
+        .product-list {
+            list-style-type: none;
+            padding: 0;
+        }
+        .product-item {
+            border: 1px solid #ffffff;
+            padding: 20px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+        }
+        .product-item button {
+            margin-left: 10px;
+            padding: 5px 10px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .product-item .edit-btn {
+            background-color: #007BFF;
+            color: white;
+        }
+        .product-item .edit-btn:hover {
+            background-color: #0056b3;
+        }
+        .product-item .delete-btn {
+            background-color: #f44336;
+            color: white;
+        }
+        .product-item .delete-btn:hover {
+            background-color: #e53935;
+        }
+        .product-item .status-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .product-item .status-btn:hover {
+            background-color: #45a049;
+        }
+        .back-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Commodity Management</h1>
+
+<!-- Back to Home Button -->
+<a href="/" class="back-button">Back to Home</a>
+
+<ul id="product-list" class="product-list">
+    {% for product in products %}
+    <li class="product-item" data-id="{{ product.id }}">
+        <span>{{ product.title }} ({{ product.status }})</span>
+        <button class="edit-btn" onclick="editProduct({{ product.id }})">Edit</button>
+        <button class="delete-btn" onclick="deleteProduct({{ product.id }})">Delete</button>
+        <button class="status-btn" onclick="toggleStatus({{ product.id }}, '{{ product.status }}')">
+            {{ 'Putaway' if product.status == 'Removal' else 'Removal' }}
+        </button>
+    </li>
+    {% endfor %}
+</ul>
+
+<script>
+    function editProduct(id) {
+        window.location.href = `/product/edit/${id}`;
+    }
+
+    function deleteProduct(id) {
+        fetch('/product/delete', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id })
+        }).then(response => response.json())
+          .then(data => alert(data.message));
+    }
+
+    function toggleStatus(id, status) {
+        fetch('/product/toggle_status', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id: id, status: status })
+        }).then(response => response.json())
+          .then(data => alert(data.message));
+    }
+</script>
+
+</body>
+</html>

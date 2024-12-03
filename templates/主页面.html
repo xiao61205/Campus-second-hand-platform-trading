@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campus second-hand platform trading</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+        }
+        .nav a {
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            text-align: center;
+            transition: background-color 0.3s;
+        }
+        .nav a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+        .main {
+            padding: 20px;
+            max-width: 1200px;
+            margin: auto;
+        }
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+            margin-bottom: 20px;
+        }
+        .carousel img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .categories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        .category {
+            background-color: white;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            flex: 1 1 calc(33% - 20px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        .category img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+        }
+        .category:hover {
+            transform: scale(1.05);
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            position: relative;
+            width: 100%;
+            bottom: 0;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            margin-top: 20px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        @media (max-width: 768px) {
+            .category {
+                flex: 1 1 100%;
+            }
+        }
+        .search-bar {
+            display: flex;
+            align-items: center;
+        }
+        .search-bar input {
+            padding: 5px;
+            font-size: 14px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .search-bar button {
+            padding: 5px 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .search-bar button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Campus second-hand platform trading</h1>
+    </div>
+    <div class="nav">
+        <div class="links">
+            <a href="/">Home page</a>
+            <a href="/product_browsing">Product browsing</a>
+            <a href="/product_management">Product management</a>
+            <a href="/personal_center">Personal center</a>
+            <a href="/help_center">Help center</a>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for products...">
+            <button onclick="alert('Search function not implemented yet!')">Search</button>
+            <a href="/login" style="margin-left: 20px; color: white;">Login</a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="carousel">
+            <img src="{{ url_for('static', filename='t0VJ20Xn4D.jpg') }}", width = "900" alt = "">
+        </div>
+        <div class="categories">
+            <div class="category">
+                <img src="{{ url_for('static', filename='1d8f9072bae04a06ae102d86d383dc7e.jpeg') }}", width = "500" alt="">
+                <p>Teaching materials and teaching aids</p>
+            </div>
+            <div class="category">
+                <img src="{{ url_for('static', filename='R-C.jfif') }}", width = "500" alt="">
+                <p>Electronics</p>
+            </div>
+            <div class="category">
+                <img src="{{ url_for('static', filename='KGlknWS1k3.jpg') }}", width = "500" alt="">
+                <p>Household items</p>
+            </div>
+        </div>
+        <p>Welcome to the campus second-hand trading platform, which is the best choice for you to buy and sell second-hand goods! We are committed to creating a safe, convenient and efficient second-hand goods trading environment to make your campus life more colorful.</p>
+        <button onclick="window.location.href='/product_browsing'">Browse now</button>
+    </div>
+    <div class="footer">
+        <p>Second-hand on campus, so that resources can be recycled | <a href="#" style="color: white;">about us</a></p>
+    </div>
+</body>
+</html>

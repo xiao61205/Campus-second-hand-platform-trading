@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback and Review System</title>
+    <style>
+        /* Reset and general styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+        }
+
+        .section-title {
+            margin-bottom: 20px;
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .review, .feedback {
+            margin-bottom: 20px;
+        }
+
+        .review-card, .feedback-card {
+            padding: 15px;
+            margin-bottom: 15px;
+            background-color: #f7f7f7;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-card:hover, .feedback-card:hover {
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .rating span {
+            margin-right: 5px;
+        }
+
+        .rating input[type="radio"] {
+            display: none;
+        }
+
+        .rating label {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .rating label:hover {
+            color: #ff9800;
+        }
+
+        .review-comment, .feedback-comment {
+            margin-top: 10px;
+        }
+
+        .submit-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 100%;
+            font-size: 16px;
+        }
+
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+
+        .feedback-form textarea {
+            width: 100%;
+            height: 100px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        .feedback-list, .review-list {
+            margin-top: 20px;
+        }
+
+        .feedback-item, .review-item {
+            padding: 15px;
+            background-color: #f7f7f7;
+            margin-bottom: 10px;
+            border-radius: 8px;
+        }
+
+        .feedback-item:hover, .review-item:hover {
+            background-color: #eef2f4;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+
+        <!-- Title -->
+        <h1>Transaction Review & Feedback</h1>
+
+        <!-- Review Section -->
+        <div class="review">
+            <div class="section-title">Leave a Review</div>
+
+            <!-- Review Form -->
+            <div class="review-card">
+                <form action="#" method="POST">
+                    <div class="rating">
+                        <span>Service Attitude: </span>
+                        <input type="radio" id="service-1" name="service" value="1"><label for="service-1">★</label>
+                        <input type="radio" id="service-2" name="service" value="2"><label for="service-2">★</label>
+                        <input type="radio" id="service-3" name="service" value="3"><label for="service-3">★</label>
+                        <input type="radio" id="service-4" name="service" value="4"><label for="service-4">★</label>
+                        <input type="radio" id="service-5" name="service" value="5"><label for="service-5">★</label>
+                    </div>
+
+                    <div class="rating">
+                        <span>Product Quality: </span>
+                        <input type="radio" id="quality-1" name="quality" value="1"><label for="quality-1">★</label>
+                        <input type="radio" id="quality-2" name="quality" value="2"><label for="quality-2">★</label>
+                        <input type="radio" id="quality-3" name="quality" value="3"><label for="quality-3">★</label>
+                        <input type="radio" id="quality-4" name="quality" value="4"><label for="quality-4">★</label>
+                        <input type="radio" id="quality-5" name="quality" value="5"><label for="quality-5">★</label>
+                    </div>
+
+                    <div class="rating">
+                        <span>Transaction Speed: </span>
+                        <input type="radio" id="speed-1" name="speed" value="1"><label for="speed-1">★</label>
+                        <input type="radio" id="speed-2" name="speed" value="2"><label for="speed-2">★</label>
+                        <input type="radio" id="speed-3" name="speed" value="3"><label for="speed-3">★</label>
+                        <input type="radio" id="speed-4" name="speed" value="4"><label for="speed-4">★</label>
+                        <input type="radio" id="speed-5" name="speed" value="5"><label for="speed-5">★</label>
+                    </div>
+
+                    <div class="review-comment">
+                        <textarea name="comment" placeholder="Leave your comments here..."></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- User Reviews -->
+            <div class="review-list">
+                <div class="review-item">
+                    <strong>User 1:</strong>
+                    <p>Service Attitude: ★★★☆☆</p>
+                    <p>Product Quality: ★★★★☆</p>
+                    <p>Transaction Speed: ★★★★☆</p>
+                    <p>Comment: Good transaction, but the delivery was a bit slow.</p>
+                </div>
+                <div class="review-item">
+                    <strong>User 2:</strong>
+                    <p>Service Attitude: ★★★★★</p>
+                    <p>Product Quality: ★★★★★</p>
+                    <p>Transaction Speed: ★★★★★</p>
+                    <p>Comment: Excellent service and product quality! Would definitely recommend.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Feedback Section -->
+        <div class="feedback">
+            <div class="section-title">Submit Feedback or Suggestions</div>
+
+            <!-- Feedback Form -->
+            <div class="feedback-card">
+                <form action="#" method="POST" class="feedback-form">
+                    <textarea name="feedback" placeholder="Submit your feedback or suggestion here..."></textarea>
+                    <button type="submit" class="submit-btn">Submit Feedback</button>
+                </form>
+            </div>
+
+            <!-- Feedback List -->
+            <div class="feedback-list">
+                <div class="feedback-item">
+                    <strong>User 1:</strong>
+                    <p>Suggestion: Improve the website design for a better user experience.</p>
+                </div>
+                <div class="feedback-item">
+                    <strong>User 2:</strong>
+                    <p>Feedback: Great platform! However, it would be nice to have more payment options.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <a href="/" class="back-button" style="margin-top: 20px; text-decoration: none; color: white; background: #4CAF50; padding: 10px 20px; border-radius: 5px;">Back to Home</a>
+</body>
+</html>

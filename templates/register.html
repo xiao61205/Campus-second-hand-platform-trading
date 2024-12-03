@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+    <script>
+        function validateRegisterForm() {
+            var username = document.getElementById('reg-username').value;
+            var passcode = document.getElementById('reg-passcode').value;
+            var email = document.getElementById('email').value;
+            var phone = document.getElementById('phone').value;
+
+            if (username === "" || passcode === "" || email === "" || phone === "") {
+                alert("All fields must be filled out.");
+                return false; // Prevent form submission
+            }
+            return true;
+        }
+    </script>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Register</h2>
+        <form onsubmit="return validateRegisterForm()">
+            <div class="input-box">
+                <label>Username</label>
+                <input type="text" id="reg-username" />
+            </div>
+            <div class="input-box">
+                <label>Passcode</label>
+                <input type="password" id="reg-passcode" />
+            </div>
+            <div class="input-box">
+                <label>Email</label>
+                <input type="email" id="email" />
+            </div>
+            <div class="input-box">
+                <label>Phone Number</label>
+                <input type="tel" id="phone" />
+            </div>
+            <div class="btn-box">
+                <a href="#">Forget Passcode</a>
+                <div>
+                    <!-- 提交注册按钮 -->
+                    <button type="submit">Register</button>
+                    <!-- 返回按钮：跳回登录页面 -->
+                    <a href="/" class="btn">Back to Login</a>
+                </div>
+            </div>
+        </form>
+    </div>
+    <a href="/" class="back-button" style="margin-top: 20px; text-decoration: none; color: white; background: #4CAF50; padding: 10px 20px; border-radius: 5px;">Back to Home</a>
+</body>
+
+</html>
+
